@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MusicStream</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-music"></i>
+            </div>
+
+            <span>MusicStream</span>
+        </div>
+
+
+        <!-- Main Navigation -->
+
+        <nav class="sidebar-nav">
+
+            <a href="#" class="nav-link active" data-page="home">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+
+            <a href="#" class="nav-link" data-page="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>Search</span>
+            </a>
+
+            <a href="#" class="nav-link" data-page="library">
+                <i class="fa-solid fa-book"></i>
+                <span>Your Library</span>
+            </a>
+
+            <a href="#" class="nav-link" data-page="favorites">
+                <i class="fa-solid fa-heart"></i>
+                <span>Favorites</span>
+            </a>
+
+        </nav>
+
+
+        <!-- Playlist -->
+
+        <div class="playlist-section">
+
+            <div class="playlist-heading">
+
+                <span>Playlists</span>
+
+                <button id="createPlaylistBtn">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+
+            </div>
+
+
+            <div class="playlist-list" id="playlistList">
+
+                <!-- JavaScript will add playlists here -->
+
+            </div>
+
+        </div>
+
+
+        <!-- Sidebar Bottom -->
+
+        <div class="sidebar-bottom">
+
+            <button id="settingsBtn" class="sidebar-bottom-btn">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <main class="main-content">
+
+
+        <!-- =====================================
+             HEADER
+        ====================================== -->
+
+        <header class="header">
+
+            <div class="search-wrapper">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search songs, artists or albums..."
+                    autocomplete="off">
+
+                <button
+                    id="clearSearchBtn"
+                    class="clear-search-btn"
+                    aria-label="Clear search">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+            <div class="header-actions">
+
+                <button id="themeBtn" class="header-btn">
+
+                    <i class="fa-solid fa-moon"></i>
+
+                </button>
+
+
+                <button id="profileBtn" class="profile-btn">
+
+                    <div class="profile-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <span>Rajkumar</span>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- =====================================
+             SEARCH RESULTS
+        ====================================== -->
+
+        <section
+            class="search-results-section"
+            id="searchResultsSection">
+
+            <div class="section-header">
+
+                <div>
+                    <p class="section-label">
+                        SEARCH
+                    </p>
+
+                    <h2 id="searchResultTitle">
+                        Search Results
+                    </h2>
+                </div>
+
+                <span id="searchResultCount">
+                    0 songs
+                </span>
+
+            </div>
+
+
+            <div
+                class="song-grid"
+                id="searchResultsGrid">
+
+                <!-- JavaScript will render search results -->
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             HOME PAGE
+        ====================================== -->
+
+        <section id="homePage">
+
+
+            <!-- =================================
+                 DYNAMIC HERO
+            ================================== -->
+
+            <section
+                class="hero"
+                id="heroSection">
+
+                <div class="hero-background"></div>
+
+                <div class="hero-overlay"></div>
+
+
+                <div class="hero-content">
+
+                    <p class="hero-label">
+                        NOW PLAYING
+                    </p>
+
+                    <h1 id="heroTitle">
+                        Your Music.<br>
+                        Your Mood.
+                    </h1>
+
+                    <p
+                        id="heroArtist"
+                        class="hero-artist">
+                        Discover your favorite music
+                    </p>
+
+                    <div class="hero-actions">
+
+                        <button
+                            id="heroPlayBtn"
+                            class="hero-play-btn">
+
+                            <i class="fa-solid fa-play"></i>
+
+                            <span>Play Now</span>
+
+                        </button>
+
+                        <button
+                            id="heroFavoriteBtn"
+                            class="hero-favorite-btn">
+
+                            <i class="fa-regular fa-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Dynamic Cover -->
+
+                <div class="hero-cover-container">
+
+                    <div class="hero-cover-glow"></div>
+
+                    <img
+                        id="heroCover"
+                        class="hero-cover"
+                        src=""
+                        alt="Album Cover">
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 ALL SONGS
+            ================================== -->
+
+            <section class="music-section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <p class="section-label">
+                            MUSIC LIBRARY
+                        </p>
+
+                        <h2>
+                            All Songs
+                        </h2>
+
+                    </div>
+
+
+                    <div class="section-actions">
+
+                        <button
+                            id="sortBtn"
+                            class="section-action-btn">
+
+                            <i class="fa-solid fa-arrow-down-a-z"></i>
+
+                            Sort
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="song-grid"
+                    id="songGrid">
+
+                    <!--
+                        JavaScript will dynamically
+                        generate ALL song cards here.
+                    -->
+
+                </div>
+
+
+                <!-- Empty State -->
+
+                <div
+                    class="empty-state"
+                    id="songsEmptyState">
+
+                    <i class="fa-solid fa-music"></i>
+
+                    <h3>No songs found</h3>
+
+                    <p>
+                        Add songs to your music library.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+        
+
+            <section class="music-section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <p class="section-label">
+                            HISTORY
+                        </p>
+
+                        <h2>
+                            Recently Played
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="recent-list"
+                    id="recentList">
+
+                    <!-- JavaScript will generate this -->
+
+                </div>
+
+
+                <div
+                    class="recent-empty"
+                    id="recentEmpty">
+
+                    <i class="fa-regular fa-clock"></i>
+
+                    <p>
+                        Your recently played songs will appear here.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <section class="music-section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <p class="section-label">
+                            YOUR MUSIC
+                        </p>
+
+                        <h2>
+                            Favorites
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="song-grid"
+                    id="favoritesGrid">
+
+                   
+                </div>
+
+
+                <div
+                    class="favorites-empty"
+                    id="favoritesEmpty">
+
+                    <i class="fa-regular fa-heart"></i>
+
+                    <h3>No favorites yet</h3>
+
+                    <p>
+                        Like songs to see them here.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+       
+        <section
+            id="libraryPage"
+            class="page-section">
+
+            <div class="page-heading">
+
+                <p class="section-label">
+                    YOUR COLLECTION
+                </p>
+
+                <h1>
+                    Your Library
+                </h1>
+
+            </div>
+
+
+            <div
+                class="song-grid"
+                id="libraryGrid">
+
+                <!-- JavaScript -->
+
+            </div>
+
+        </section>
+
+
+        <section
+            id="favoritesPage"
+            class="page-section">
+
+            <div class="page-heading">
+
+                <p class="section-label">
+                    SAVED MUSIC
+                </p>
+
+                <h1>
+                    Your Favorites
+                </h1>
+
+            </div>
+
+
+            <div
+                class="song-grid"
+                id="favoritesPageGrid">
+
+                <!-- JavaScript -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+   
+
+    <footer
+        class="music-player"
+        id="musicPlayer">
+
+        <div class="player-background"></div>
+
+
+       
+        <div class="player-overlay"></div>
+
+
+        <div class="player-content">
+
+
+         
+            <div class="current-song">
+
+                <div class="current-cover-wrapper">
+
+                    <img
+                        id="playerCover"
+                        src=""
+                        alt="Current Song">
+
+                </div>
+
+
+                <div class="current-song-info">
+
+                    <h4 id="playerSongName">
+                        No Song Playing
+                    </h4>
+
+                    <p id="playerArtist">
+                        Select a song
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="playerLikeBtn"
+                    class="player-like-btn">
+
+                    <i class="fa-regular fa-heart"></i>
+
+                </button>
+
+            </div>
+
+
+           
+
+            <div class="player-center">
+
+
+           
+
+                <div class="player-controls">
+
+                    <button
+                        id="shuffleBtn"
+                        class="player-control-btn"
+                        title="Shuffle">
+
+                        <i class="fa-solid fa-shuffle"></i>
+
+                    </button>
+
+
+                    <button
+                        id="previousBtn"
+                        class="player-control-btn"
+                        title="Previous">
+
+                        <i class="fa-solid fa-backward-step"></i>
+
+                    </button>
+
+
+                    <button
+                        id="playPauseBtn"
+                        class="play-pause-btn"
+                        title="Play">
+
+                        <i class="fa-solid fa-play"></i>
+
+                    </button>
+
+
+                    <button
+                        id="nextBtn"
+                        class="player-control-btn"
+                        title="Next">
+
+                        <i class="fa-solid fa-forward-step"></i>
+
+                    </button>
+
+
+                    <button
+                        id="repeatBtn"
+                        class="player-control-btn"
+                        title="Repeat">
+
+                        <i class="fa-solid fa-repeat"></i>
+
+                    </button>
+
+                </div>
+
+
+
+                <div class="progress-container">
+
+                    <span id="currentTime">
+                        0:00
+                    </span>
+
+
+                    <input
+                        type="range"
+                        id="progressBar"
+                        min="0"
+                        max="100"
+                        value="0">
+
+
+                    <span id="duration">
+                        0:00
+                    </span>
+
+                </div>
+
+            </div>
+
+
+           
+
+            <div class="player-right">
+
+                <button
+                    id="queueBtn"
+                    class="player-right-btn">
+
+                    <i class="fa-solid fa-list"></i>
+
+                </button>
+
+
+                <button
+                    id="volumeBtn"
+                    class="player-right-btn">
+
+                    <i class="fa-solid fa-volume-high"></i>
+
+                </button>
+
+
+                <input
+                    type="range"
+                    id="volumeBar"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    value="0.7">
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+ 
+    <audio
+        id="audioPlayer"
+        preload="metadata">
+    </audio>
+
+    <script src="/javascript/dom.js"></script>
+
+</body>
+
+</html>
